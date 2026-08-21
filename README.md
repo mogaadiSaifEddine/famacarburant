@@ -42,8 +42,8 @@ npm install
 npm run dev
 ```
 
-Reports are persisted through `POST /api/reports` directly into `public/signals.json`. Reports older than seven days are removed when the API reads or writes the file.
+Reports are persisted through `POST /api/reports`. During local development, the API writes directly into `public/signals.json` and removes reports older than seven days. On Vercel, it automatically uses Supabase instead of the non-persistent serverless filesystem.
 
 ## Deployment
 
-This JSON mode is intended for local development or a server with a persistent disk. Vercel can serve the frontend, but its serverless filesystem is not persistent, so use Supabase or another database before deploying a shared production version.
+For Vercel, add `SUPABASE_URL` and `SUPABASE_ANON_KEY` (or the supported `NEXT_PUBLIC_*` equivalents) as project environment variables, then run `supabase/schema.sql` in the Supabase SQL editor. The Supabase project and key must be active and belong to the same project URL.
