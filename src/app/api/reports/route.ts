@@ -11,6 +11,8 @@ const fuelTypes = new Set<FuelType>(['gasoline', 'diesel', 'diesel50'])
 
 type ReportInput = { latitude?: unknown; longitude?: unknown; fuelType?: unknown; note?: unknown }
 
+const isFuelType = (value: unknown): value is FuelType => typeof value === 'string' && fuelTypes.has(value as FuelType)
+
 const isReport = (value: unknown): value is Report => {
   if (!value || typeof value !== 'object') return false
   const report = value as Partial<Report>
@@ -45,7 +47,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Invalid JSON.' }, { status: 400 })
   }
 
-  if (typeof body.latitude !== 'number' || body.latitude < 30 || body.latitude > 38 || typeof body.longitude !== 'number' || body.longitude < 7 || body.longitude > 12 || typeof body.fuelType !== 'string' || !fuelTypes.has(body.fuelType)) {
+  if (typeof body.latitude !== 'number' || body.latitude < 30 || body.latitude > 38 || typeof body.longitude !== 'number' || body.longitude < 7 || body.longitude > 12 || !isFuelType(body.fuelType)) {
     return NextResponse.json({ error: 'Invalid report.' }, { status: 400 })
   }
 
