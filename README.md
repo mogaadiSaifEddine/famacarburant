@@ -31,3 +31,19 @@ If you are developing a production application, we recommend enabling type-aware
 
 See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
 # famacarburant
+# Fama Carburant
+
+Next.js and TypeScript map for reporting fuel shortages in Tunisia.
+
+## Local setup
+
+```bash
+npm install
+npm run dev
+```
+
+Reports are persisted through `POST /api/reports` directly into `public/signals.json`. Reports older than seven days are removed when the API reads or writes the file.
+
+## Deployment
+
+This JSON mode is intended for local development or a server with a persistent disk. Vercel can serve the frontend, but its serverless filesystem is not persistent, so use Supabase or another database before deploying a shared production version.
