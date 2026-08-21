@@ -3,6 +3,9 @@
 .topbar { height: 74px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); font-size: 17px; font-weight: 800; letter-spacing: -.7px; }
 .brand > span:last-child > span { color: var(--orange); }
+.brand-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+.brand-name { color: var(--ink); font-size: 17px; font-weight: 800; letter-spacing: -.7px; }
+.brand-name span { color: var(--orange); }
 .brand-mark { display: grid; place-items: center; width: 31px; height: 31px; color: white; background: var(--orange); border-radius: 50% 50% 50% 6px; transform: rotate(-45deg); }
 .brand-mark svg { transform: rotate(45deg); }
 .header-actions, .language-switcher { display: flex; align-items: center; gap: 13px; }
@@ -51,6 +54,8 @@ h1 { max-width: 660px; margin-bottom: 12px; color: var(--ink); font-size: clamp(
 .map .leaflet-control-zoom a { width: 34px; height: 34px; color: #f9faf7; border: 0; border-bottom: 1px solid #ffffff33; background: #18212b; line-height: 32px; }
 .map .leaflet-control-zoom a:last-child { border-bottom: 0; }
 .map-hint { position: absolute; z-index: 500; bottom: 22px; left: 50%; display: flex; align-items: center; gap: 7px; transform: translateX(-50%); padding: 10px 15px; color: #f9faf7; border: 1px solid #ffffff29; border-radius: 20px; background: #18212be8; box-shadow: 0 5px 16px #203b3a2b; font-size: 10px; pointer-events: none; }
+.powered-by { color: #7a8587; text-decoration: none; font: 8px 'DM Mono', monospace; letter-spacing: .1px; opacity: .9; }
+.powered-by:hover { color: var(--ink); text-decoration: underline; }
 .custom-marker { border: 0; background: transparent; }
 .custom-marker > div { position: relative; display: grid; place-items: center; width: 32px; height: 32px; border: 3px solid white; border-radius: 50% 50% 50% 4px; background: var(--marker-color); box-shadow: 0 3px 8px #1d37334d; transform: rotate(-45deg); }
 .custom-marker span { width: 8px; height: 8px; border: 2px solid white; border-radius: 50%; transform: rotate(45deg); }
